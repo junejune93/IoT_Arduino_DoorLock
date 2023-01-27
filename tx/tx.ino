@@ -63,13 +63,14 @@ void loop() {
   rfid.PCD_StopCrypto1();
   
  // 수신단에 RFID값 전송
-  String sensing0 = "9999";
+  // String sensing0 = "9999";
   String sensing1 = (String)nuidPICC[0];
   String sensing2 = (String)nuidPICC[1];
   String sensing3 = (String)nuidPICC[2];
   String sensing4 = (String)nuidPICC[3]; // 통신할때는 ASC로 바뀌기 때문에 바꿈
-  String sensingsum = (String)sensing0 + "@" + (String)sensing1 + "@" + (String)sensing2 + "@" + (String)sensing3 + "@" + (String)sensing4;
-  P_Serial.println(sensingsum);
+  String sensingsum = sensing1 + "#" + sensing2 + "@" + sensing3 + "@" + sensing4;
+  P_Serial.print(sensingsum);
+  P_Serial.println();
 }
 
 // 인터럽트 함수 (버튼을 누르면 마스터키 초기화, 이후 마스터키 저장번호와 대조후 판별)
