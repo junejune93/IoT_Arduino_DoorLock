@@ -25,26 +25,7 @@ void loop() {
     ptr = strtok(str,"@"); 
     while(ptr !=NULL){      // 카드값 출력
       nuid[i++]=ptr;
-      Serial.print(ptr);
       ptr=strtok(NULL,"@"); 
     }
-  }
-  
-  for(i = 0; i < 4; i++)
-  {
-    if(pnuid[i] == nuid){
-    
-    }
-    
-    else{
-      for(i = 0; i < 4; i++){ // 새카드값 입력
-        if(pnuid[i]=NULL){
-        pnuid[i] = nuid;
-        break;
-        }
-      }
-    }  
-  }
-}  
-
-
+  }  
+}
