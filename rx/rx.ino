@@ -1,13 +1,17 @@
+#include <Servo.h>
+
 #include <SoftwareSerial.h>
 
 SoftwareSerial P_Serial(6,7);
+Servo servo;
 
 char str[50];
 char* nuid[5];
-char* p;
+
 void setup() {
   Serial.begin(9600);
   P_Serial.begin(9600);
+  servo.attach(9);
 }
 
 void loop() {
@@ -40,11 +44,14 @@ void loop() {
     int d = atoi(nuid[4]);
     
     if(a == 109 && b == 4 && c == 12 && d == 50){
-      Serial.println("Autohrized access");    
-      delay(500);
+      Serial.println("Autohrized access");
+      servo.write(180);    
+      delay(3000);
+      servo.write(0);
     }
     else{
       Serial.println("Access denied");
+      servo.write(0);
       delay(500);
     }
   } 
